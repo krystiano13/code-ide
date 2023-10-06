@@ -1,0 +1,4 @@
+main {
+    min-height: 40rem;
+    height: calc(100vh - 5rem);
+}

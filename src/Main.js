@@ -1,9 +1,13 @@
 import React from "react";
 
+import { Navbar } from "./components/Navbar/Navbar";
+import { Editor } from "./components/editor/Editor";
+
 const Main = () => {
   return (
     <React.Fragment>
-      <h1>CODE IDE</h1>
+      <Navbar />
+      <Editor />
     </React.Fragment>
   );
 };
