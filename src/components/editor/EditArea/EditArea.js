@@ -39,7 +39,19 @@ const EditArea = (props) => {
       onBeforeChange={(editor, data, value) => {
         setValue(value);
       }}
-      onChange={(editor, data, value) => {}}
+      onChange={(editor, data, value) => {
+        switch (props.mode) {
+          case "xml":
+            dispatch(html(value));
+            break;
+          case "css":
+            dispatch(css(value));
+            break;
+          case "javascript":
+            dispatch(js(value));
+            break;
+        }
+      }}
     />
   );
 };
