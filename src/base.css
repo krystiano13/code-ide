@@ -1,5 +1,13 @@
+@import 'codemirror/lib/codemirror.css';
+@import 'codemirror/theme/material.css';
+
 *,*::before,*::after {
     margin : 0;
     padding : 0;
     box-sizing: border-box;
+}
+
+.react-codemirror2 {
+    font-size : 1.25rem;
+    margin : 1rem;
 }
