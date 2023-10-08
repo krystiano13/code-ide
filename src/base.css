@@ -7,6 +7,10 @@
     box-sizing: border-box;
 }
 
+.CodeMirror {
+    min-height : 46rem;
+}
+
 .react-codemirror2 {
     font-size : 1.25rem;
     margin : 1rem;
