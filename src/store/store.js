@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { codeSlice } from "../reducers/codeReducer";
+import codeReducer from "../reducers/codeReducer";
 
 export const store = configureStore({
-    reducer: codeSlice
+    reducer: codeReducer
 });
