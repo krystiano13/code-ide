@@ -3,6 +3,7 @@ import "./Editor.css";
 
 import { Switch } from "./Switch/Switch";
 import { EditArea } from "./EditArea/EditArea";
+import { Page } from "./PageView/Page";
 
 const HTMLEditor = () => <EditArea mode="xml" />;
 const CSSEditor = () => <EditArea mode="css" />;
@@ -17,6 +18,7 @@ const Editor = () => {
       {mode === "HTML" && <HTMLEditor />}
       {mode === "CSS" && <CSSEditor />}
       {mode === "JS" && <JSEditor />}
+      {mode === "Page" && <Page />}
     </main>
   );
 };

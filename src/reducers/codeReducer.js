@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   html: "<h1>Welcome to my code editor !!!</h1>",
   css: "",
-  js: "",
+  js: "//use document.querySelector('.Page'); if you want to add something using javascript :)",
 };
 
 export const codeSlice = createSlice({
