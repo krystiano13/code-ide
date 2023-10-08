@@ -5,14 +5,14 @@ require("codemirror/mode/xml/xml");
 require("codemirror/mode/javascript/javascript");
 require("codemirror/mode/css/css");
 
-const EditArea = () => {
+const EditArea = (props) => {
   const [value, setValue] = React.useState();
 
   return (
     <CodeMirror
       value={value}
       options={{
-        mode: "css",
+        mode: props.mode,
         theme: "material",
         lineNumbers: true,
       }}
