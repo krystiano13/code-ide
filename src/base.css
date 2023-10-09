@@ -7,9 +7,14 @@
     box-sizing: border-box;
 }
 
+.Page {
+    animation : appear 300ms;
+}
 
 .CodeMirror {
     min-height : 46rem;
+
+    animation : appear 300ms;
 
     @media screen and (max-height : 800px) {
         min-height : 36rem;
@@ -38,4 +43,14 @@
 .react-codemirror2 {
     font-size : 1.25rem;
     margin : 1rem;
+}
+
+@keyframes appear {
+    from {
+        transform: translateX(-50px);
+    }
+
+    to {
+        transform: translateX(0px);
+    }
 }
