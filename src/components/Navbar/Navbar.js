@@ -20,6 +20,7 @@ const Navbar = () => {
 
       <nav className="width-100 p-3 pt-5 pb-5 bg">
         <button
+          className="p-1 font-head br-none color bg-primary c-pointer mr-1 br-b-solid br-b-3 br-b-accent"
           onClick={() => {
             setModalMode("load");
             setModal(true);
@@ -28,6 +29,7 @@ const Navbar = () => {
           Load Project
         </button>
         <button
+          className="p-1 font-head br-none color bg-primary c-pointer mr-1 br-b-solid br-b-3 br-b-accent"
           onClick={() => {
             setModalMode("save");
             setModal(true);
