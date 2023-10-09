@@ -28,4 +28,4 @@ const Page = () => {
     )
 }
 
-export { Page };
+export default Page;

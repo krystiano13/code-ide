@@ -1,13 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, Suspense, lazy } from "react";
 import "./Editor.css";
 
 import { Switch } from "./Switch/Switch";
-import { EditArea } from "./EditArea/EditArea";
-import { Page } from "./PageView/Page";
+import { Loading } from "../Loading/Loading";
 
-const HTMLEditor = () => <EditArea mode="xml" />;
-const CSSEditor = () => <EditArea mode="css" />;
-const JSEditor = () => <EditArea mode="javascript" />;
+const EditArea = lazy(() => import("./EditArea/EditArea"));
+const Page = lazy(() => import("./PageView/Page"));
+
+const HTMLEditor = () => (
+  <Suspense fallback={<Loading />}>
+    <EditArea mode="xml" />
+  </Suspense>
+);
+const CSSEditor = () => (
+  <Suspense fallback={<Loading />}>
+    <EditArea mode="css" />
+  </Suspense>
+);
+const JSEditor = () => (
+  <Suspense fallback={<Loading />}>
+    <EditArea mode="javascript" />
+  </Suspense>
+);
 
 const Editor = () => {
   const [mode, setMode] = useState("HTML");
@@ -18,7 +32,11 @@ const Editor = () => {
       {mode === "HTML" && <HTMLEditor />}
       {mode === "CSS" && <CSSEditor />}
       {mode === "JS" && <JSEditor />}
-      {mode === "Page" && <Page />}
+      {mode === "Page" && (
+        <Suspense fallback={<Loading />}>
+          <Page />
+        </Suspense>
+      )}
     </main>
   );
 };

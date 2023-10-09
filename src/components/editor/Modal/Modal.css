@@ -7,7 +7,7 @@
 .Modal {
     min-width : 25rem;
     min-height : 20rem;
-    animation: appear 400ms linear;
+    animation: app 400ms linear;
 }
 
 @keyframes opacity {
@@ -15,7 +15,7 @@
     to { opacity : 1; }
 }
 
-@keyframes appear {
+@keyframes app {
     0% {
         transform: scale(0);
     }

@@ -56,4 +56,4 @@ const EditArea = (props) => {
   );
 };
 
-export { EditArea };
+export default EditArea;

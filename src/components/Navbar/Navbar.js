@@ -1,6 +1,9 @@
 import React from "react";
 import "./Navbar.css";
-import { Modal } from "../editor/Modal/Modal";
+import { Suspense, lazy } from "react";
+import { Loading } from "../Loading/Loading";
+
+const Modal = lazy(() => import("../../components/editor/Modal/Modal"));
 
 const Navbar = () => {
   const [modal, setModal] = React.useState(false);
@@ -10,12 +13,14 @@ const Navbar = () => {
   return (
     <>
       {modal && (
-        <Modal
-          name={name}
-          setName={(name) => setName(name)}
-          hide={() => setModal(false)}
-          mode={modalMode}
-        />
+        <Suspense fallback={<Loading />}>
+          <Modal
+            name={name}
+            setName={(name) => setName(name)}
+            hide={() => setModal(false)}
+            mode={modalMode}
+          />
+        </Suspense>
       )}
 
       <nav className="width-100 p-2 bg">
