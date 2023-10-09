@@ -54,5 +54,5 @@ export const codeSlice = createSlice({
   },
 });
 
-export const { html, css, js } = codeSlice.actions;
+export const { html, css, js, saveProject, loadProjects } = codeSlice.actions;
 export default codeSlice.reducer;
