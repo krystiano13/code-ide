@@ -35,10 +35,11 @@ export const codeSlice = createSlice({
       return state;
     },
     loadOneProject: (state, action) => {
-      state.html = state.projects[action.payload].html;
-      state.css = state.projects[action.payload].css;
-      state.js = state.projects[action.payload].js;
-      return state;
+      if(action.payload)
+        state.html = state.projects[action.payload].html;
+        state.css = state.projects[action.payload].css;
+        state.js = state.projects[action.payload].js;
+        return state;
     },
     saveProject: (state, action) => {
       let id;
