@@ -1,8 +1,9 @@
 .ModalWrapper {
     z-index : 1000;
+    background-color: #33333379;
 }
 
 .Modal {
     min-width : 25rem;
-    min-height : 40rem;
+    min-height : 20rem;
 }

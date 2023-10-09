@@ -38,12 +38,17 @@ const Modal = (props) => {
       >
         {props.mode === "save" && (
           <>
-            <input name="name" placeholder="Project name" type="text" />
+            <input
+              className="br-none p-1 outline-none font-other f-400 box-border"
+              name="name"
+              placeholder="Project name"
+              type="text"
+            />
           </>
         )}
         {props.mode === "load" && (
           <>
-            <select>
+            <select className="br-none p-1 outline-none c-pointer font-other f-400 box-border">
               {projects.map((item) => (
                 <option key={item.id} id={item.id}>
                   {item.name}
@@ -52,7 +57,12 @@ const Modal = (props) => {
             </select>
           </>
         )}
-        <button type="submit">{props.mode === "save" ? "Save" : "Load"}</button>
+        <button
+          className="c-pointer box-border p-1 pr-2 pl-2 font-head color bg-secondary br-none"
+          type="submit"
+        >
+          {props.mode === "save" ? "Save" : "Load"}
+        </button>
       </form>
     </div>
   );
