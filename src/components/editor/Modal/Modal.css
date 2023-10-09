@@ -1,0 +1,8 @@
+.ModalWrapper {
+    z-index : 1000;
+}
+
+.Modal {
+    min-width : 25rem;
+    min-height : 40rem;
+}

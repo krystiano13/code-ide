@@ -25,10 +25,20 @@ export const codeSlice = createSlice({
     },
     loadProjects: (state, action) => {
       if (window.localStorage.getItem("projects")) {
-        state.projects = localStorage.getItem("projects");
+        state.projects = JSON.parse(localStorage.getItem("projects"));
       } else {
         state.projects = [];
       }
+
+      console.log(state.projects);
+
+      return state;
+    },
+    loadOneProject: (state, action) => {
+      state.html = state.projects[action.payload].html;
+      state.css = state.projects[action.payload].css;
+      state.js = state.projects[action.payload].js;
+      return state;
     },
     saveProject: (state, action) => {
       let id;
@@ -37,6 +47,11 @@ export const codeSlice = createSlice({
         id = 0;
       } else {
         id = state.projects.length;
+      }
+
+      if (state.projects.some(item => item.name === action.payload)) {
+        alert('Name must be unique');
+        return state;
       }
 
       const projectData = {
@@ -49,10 +64,12 @@ export const codeSlice = createSlice({
 
       state.projects.push(projectData);
 
-      localStorage.setItem("projects", state.projects);
+      localStorage.setItem("projects", JSON.stringify(state.projects));
+      loadProjects();
+
     },
   },
 });
 
-export const { html, css, js, saveProject, loadProjects } = codeSlice.actions;
+export const { html, css, js, saveProject, loadProjects, loadOneProject } = codeSlice.actions;
 export default codeSlice.reducer;

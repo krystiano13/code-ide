@@ -26,7 +26,7 @@ const EditArea = (props) => {
         setValue(jsLang);
         break;
     }
-  }, []);
+  }, [htmlLang, cssLang, jsLang]);
 
   return (
     <CodeMirror
