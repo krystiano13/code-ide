@@ -49,27 +49,39 @@ export const codeSlice = createSlice({
         id = state.projects.length;
       }
 
-      if (state.projects.some(item => item.name === action.payload)) {
-        alert('Name must be unique');
+      if (
+        state.projects.some((item) => item.name === action.payload[0]) &&
+        !action.payload[1]
+      ) {
+        alert("Name must be unique");
         return state;
       }
 
       const projectData = {
         id: id,
-        name: action.payload,
+        name: action.payload[0],
         html: state.html,
         css: state.css,
         js: state.js,
       };
 
-      state.projects.push(projectData);
+      if (!action.payload[1]) {
+        state.projects.push(projectData);
+      } else {
+        const index = state.projects.findIndex(
+          (item) => item.name === action.payload[1]
+        );
+        state.projects[index].html = projectData.html;
+        state.projects[index].css = projectData.css;
+        state.projects[index].js = projectData.js;
+      }
 
       localStorage.setItem("projects", JSON.stringify(state.projects));
       loadProjects();
-
     },
   },
 });
 
-export const { html, css, js, saveProject, loadProjects, loadOneProject } = codeSlice.actions;
+export const { html, css, js, saveProject, loadProjects, loadOneProject } =
+  codeSlice.actions;
 export default codeSlice.reducer;

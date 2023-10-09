@@ -8,20 +8,27 @@ import "./Modal.css";
 const Modal = (props) => {
   const dispatch = useDispatch();
   const projects = useSelector((state) => state.projects);
-  const html = useSelector((state) => state.html);
-
-  console.log(projects[0]);
 
   const save = (e) => {
     e.preventDefault();
-    dispatch(saveProject(e.target[0].value));
+    dispatch(saveProject([e.target[0].value, props.name]));
+    props.hide();
   };
+
   const load = (e) => {
     e.preventDefault();
     const index = projects.findIndex((item) => item.name === e.target[0].value);
     dispatch(loadOneProject(index));
-    console.log(html);
+    props.hide();
+    props.setName(projects[index].name);
   };
+
+  React.useEffect(() => {
+    if (props.mode === "save" && props.name !== null) {
+      dispatch(saveProject([props.name, props.name]));
+      props.hide();
+    }
+  }, []);
 
   return (
     <div className="ModalWrapper p-fixed width-100 height-100 d-flex flex-col jc-center ai-center">
