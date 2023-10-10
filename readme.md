@@ -13,3 +13,6 @@
 
 <h2>Setup:</h2>
 <h3>Download repo and run "npm i". Then run "npm run start"</h3>
+
+<h2>Live Version:</h2>
+<a href="https://krystiano13.github.io/code-ide-live/">Click Here</a>

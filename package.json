@@ -2,7 +2,7 @@
   "name": "ide",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "homepage": "https://krystiano13.github.io/code-ide-live/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build"
